@@ -2,6 +2,8 @@ import mongoose from "mongoose";
 import User from "../model/usermodel.js";
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
+import dotenv from 'dotenv';
+dotenv.config();
 
 
 

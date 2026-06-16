@@ -11,8 +11,9 @@ export const addproduct = async (req, res) => {
     const { userid, pname, qty } = req.body;
 
     const user = await User.findById(userid);
-
+    
     if (!user) {
+      console.log(user) 
       return res.status(404).json({
         success: false,
         message: "User not found",
@@ -52,8 +53,8 @@ export const  getall  = async (req , res )=>{
 
 export const getById  = async (req , res )=>{
 
-    const {userid}= req.params
-    const product = await Product.find(userid)
+    const {id: userid}= req.params
+    const product = await Product.find({ userid })
     if(!product)
     {
      return res.status(400).json({success:true  , message :"Product not found"})
@@ -94,7 +95,7 @@ export const deleteproduct = async(req , res )=>{
 
      const { id } = req.params;
 
-    const user = await Product.findByIdAndDelete({id})
+    const user = await Product.findByIdAndDelete(id)
   if (!user) {
     return res.status(404).json({
       success: false,

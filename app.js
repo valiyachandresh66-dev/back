@@ -1,14 +1,15 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
-import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import { dbcneection } from "./db.js";
 import userrouter from './router/userrouter.js'
 import productrouter from './router/productrouter.js'
 
 const app = express();
-dotenv.config({path: "./.env"});
 
 
 app.use(express.json());
